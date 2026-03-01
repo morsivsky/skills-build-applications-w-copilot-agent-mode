@@ -9,13 +9,13 @@ function Workouts() {
 
   useEffect(() => {
     const baseUrl = process.env.REACT_APP_CODESPACE_NAME
-      ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
-      : 'http://localhost:8000';
-    const endpoint = `${baseUrl}/api/workouts/`;
+      ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`
+      : 'http://localhost:8000/api/workouts/';
+ 
 
-    console.log('Workouts endpoint:', endpoint);
+    console.log('Workouts endpoint:', baseUrl);
 
-    fetch(endpoint)
+    fetch(baseUrl)
       .then((response) => response.json())
       .then((data) => {
         console.log('Workouts fetched data:', data);

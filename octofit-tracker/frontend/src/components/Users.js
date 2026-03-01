@@ -9,13 +9,13 @@ function Users() {
 
   useEffect(() => {
     const baseUrl = process.env.REACT_APP_CODESPACE_NAME
-      ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
-      : 'http://localhost:8000';
-    const endpoint = `${baseUrl}/api/users/`;
+      ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/users/`
+      : 'http://localhost:8000/api/users/';
 
-    console.log('Users endpoint:', endpoint);
 
-    fetch(endpoint)
+    console.log('Users endpoint:', baseUrl);
+
+    fetch(baseUrl)
       .then((response) => response.json())
       .then((data) => {
         console.log('Users fetched data:', data);
