@@ -8,14 +8,14 @@ function Activities() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const baseUrl = process.env.REACT_APP_CODESPACE_NAME
-      ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
-      : 'http://localhost:8000';
-    const endpoint = `${baseUrl}/api/activities/`;
+    const baseUrl = `{process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+      ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+      : 'http://localhost:8000/api/activities/';
+    //const endpoint = `${baseUrl}/api/activities/`;
 
-    console.log('Activities endpoint:', endpoint);
+    console.log('Activities endpoint:', baseUrl);
 
-    fetch(endpoint)
+    fetch(baseUrl)
       .then((response) => response.json())
       .then((data) => {
         console.log('Activities fetched data:', data);
